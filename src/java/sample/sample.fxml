@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="urlField" layoutX="25.0" layoutY="32.0" promptText="url" text="http://dev.agroclub-coordinator.spider.ru/auth/sign-inhttp://dev.agroclub-coordinator.spider.ru/auth/sign-in" />
+      <Button fx:id="goToButton" layoutX="219.0" layoutY="32.0" mnemonicParsing="false" text="GoTo" />
+      <Label fx:id="appStatus" layoutX="408.0" layoutY="30.0" text="READY">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="5.0" layoutY="83.0" prefHeight="182.0" prefWidth="591.0" style="-fx-background-color: #F1F8F1;">
+         <children>
+            <Button fx:id="startSearchButton" layoutX="395.0" layoutY="57.0" mnemonicParsing="false" text="Search Element" />
+            <TextField fx:id="searchElemField" layoutX="195.0" layoutY="57.0" />
+            <ChoiceBox fx:id="chouseIdentifir" layoutX="31.0" layoutY="57.0" prefWidth="150.0" />
+            <Label fx:id="searchResult" layoutX="524.0" layoutY="55.0" prefHeight="31.0" prefWidth="51.0" text="empty" />
+            <Label layoutX="84.0" layoutY="40.0" text="findBy:" />
+            <Label layoutX="257.0" layoutY="40.0" text="Value" />
+            <Label layoutX="524.0" layoutY="40.0" text="Elem Is" />
+            <TextField fx:id="optionalSearchElemField" layoutX="195.0" layoutY="109.0" />
+            <Label layoutX="230.0" layoutY="92.0" text="Optional Value" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="230.0" prefHeight="278.0" prefWidth="622.0">
+         <children>
+            <Button fx:id="setThatElemSourceButton" layoutX="113.0" layoutY="234.0" mnemonicParsing="false" text="Set that elem source" />
+            <Button fx:id="setSourceWebPageButton" layoutX="277.0" layoutY="234.0" mnemonicParsing="false" text="Set source WebPage" />
+            <Pane layoutX="7.0" layoutY="14.0" prefHeight="182.0" prefWidth="93.0">
+               <children>
+                  <Label layoutX="17.0" layoutY="14.0" text="Elem Count" />
+                  <Label fx:id="elemCount" layoutX="36.0" layoutY="38.0" text="None" />
+                  <Label layoutX="21.0" layoutY="65.0" text="With Elem" />
+                  <ChoiceBox fx:id="numberElemCheckBox" accessibleText="0" layoutX="26.0" layoutY="88.0" prefHeight="27.0" prefWidth="53.0" />
+                  <Button fx:id="clickOnElem" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" text="Click!" />
+               </children>
+            </Pane>
+            <Pane layoutX="113.0" layoutY="10.0" prefHeight="213.0" prefWidth="475.0" style="-fx-background-color: D2E3D1;">
+               <children>
+                  <TextField fx:id="insertTextField" layoutX="5.0" layoutY="18.0" prefHeight="27.0" prefWidth="216.0" />
+                  <Button fx:id="insertTextButton" layoutX="241.0" layoutY="18.0" mnemonicParsing="false" text="Insert Text" />
+                  <Button fx:id="clearButton" layoutX="343.0" layoutY="18.0" mnemonicParsing="false" text="Clear" />
+                  <Label layoutX="14.0" layoutY="61.0" text="ClassName:" />
+                  <Label fx:id="getTextResultField" layoutX="99.0" layoutY="85.0" prefHeight="27.0" prefWidth="367.0" text="emptyText" textAlignment="CENTER" />
+                  <Label layoutX="14.0" layoutY="90.0" text="Text:" />
+                  <Label layoutX="14.0" layoutY="119.0" text="Value:" />
+                  <Label layoutX="12.0" layoutY="150.0" text="Name" />
+                  <Label fx:id="getClassNameResultField" layoutX="99.0" layoutY="56.0" prefHeight="27.0" prefWidth="305.0" text="emptyText" textAlignment="CENTER" />
+                  <Label fx:id="getValueResultField" layoutX="99.0" layoutY="114.0" prefHeight="27.0" prefWidth="367.0" text="emptyText" textAlignment="CENTER" />
+                  <Label fx:id="getNameResultField" layoutX="99.0" layoutY="145.0" prefHeight="27.0" prefWidth="367.0" text="emptyText" textAlignment="CENTER" />
+                  <Button fx:id="getAttributeButton" layoutX="14.0" layoutY="179.0" mnemonicParsing="false" text="getAttribute" />
+                  <TextField fx:id="attributeField" layoutX="128.0" layoutY="183.0" prefHeight="27.0" prefWidth="114.0" />
+                  <Label fx:id="getAttributeResultField" layoutX="254.0" layoutY="183.0" prefHeight="27.0" prefWidth="150.0" text="emptyText" textAlignment="CENTER" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="closeBrowser" layoutX="301.0" layoutY="32.0" mnemonicParsing="false" text="Close" />
+      <Label layoutX="555.0" layoutY="38.0" text="click:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="clickCountLabel" layoutX="586.0" layoutY="38.0" text="0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
