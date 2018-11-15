@@ -1,5 +1,6 @@
 package sample;
 
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 //import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,19 +21,27 @@ public class WebActions {
     protected WebDriverWait wait5;
     protected WebDriverWait wait10;
     protected WebDriverWait wait30;
+    protected AndroidDriver androidDriver;
     protected WebDriver driver;
 
     protected int defaultImlicityWait;
 
-    public WebActions() throws MalformedURLException {
+    public WebActions(String driverMod) throws MalformedURLException {
         //super();
-        createWebDriver();
+        if (driverMod.equals("WEB"))
+            createWebDriver();
 
-        wait1 = new WebDriverWait(driver, 1);
-        wait2 = new WebDriverWait(driver, 2);
-        wait5 = new WebDriverWait(driver, 5);
-        wait10 = new WebDriverWait(driver, 10);
-        wait30 = new WebDriverWait(driver, 30);
+        else if (driverMod.equals("ANDROID"))
+            createAndroidDriver();
+
+        else if (driverMod.equals("IOS"))
+            createIOSDriver();
+
+//        wait1 = new WebDriverWait(driver, 1);
+//        wait2 = new WebDriverWait(driver, 2);
+//        wait5 = new WebDriverWait(driver, 5);
+//        wait10 = new WebDriverWait(driver, 10);
+//        wait30 = new WebDriverWait(driver, 30);
 
         defaultImlicityWait = 5;
     }
@@ -69,8 +79,9 @@ public class WebActions {
         DesiredCapabilities dc = DesiredCapabilities.chrome();
         System.setProperty("webdriver.chrome.driver",
                 "/Users/mcs/Documents/chromedriver");
-//        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
         driver = new ChromeDriver(dc);
+
+//        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
 
         driver.manage().timeouts().implicitlyWait(defaultImlicityWait, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
@@ -81,6 +92,30 @@ public class WebActions {
 //        driver.manage().window().setSize(new Dimension(1366, 768)); // max 1920 * 1080
 //        driver.manage().window().setPosition(new Point(1930,366));
 
+    }
+
+    public void createAndroidDriver() {
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("appium-version", "1.7.0");//1.9.0
+        capabilities.setCapability("platformName", "android");
+        capabilities.setCapability("platformVersion", "8.0.0");
+        capabilities.setCapability("deviceName", "CQ3000HB6L");
+        capabilities.setCapability("app", "/Users/mcs/Downloads/agroclub-2.0.1(104)-api(v1.0.5)-debug.apk");
+        capabilities.setCapability("appPackage", "ru.agroclub");
+        //capabilities.setCapability("appActivity", "com.reverllc.rever.ui.splash.SplashActivity");
+        capabilities.setCapability("noReset", true);
+        try {
+            driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+
+        } catch (Exception e) {
+            System.out.println("не удалось создать драйвер");
+        }
+
+    }
+
+    public void createIOSDriver() {
+        //TO DO
     }
 
     public WebDriver getDriver() {

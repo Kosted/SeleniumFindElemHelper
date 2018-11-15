@@ -30,7 +30,7 @@ public class Controller {
     private TextField urlField;
 
     @FXML
-    private Button goToButton;
+    private Button createWebDriverButton;
 
     @FXML
     private Label appStatus;
@@ -101,6 +101,9 @@ public class Controller {
     @FXML
     private Label clickCountLabel;
 
+    @FXML
+    private Button createAppiumDriverButton;
+
     ////////////////////    ////////////////////
 
     private WebActions webActions;
@@ -118,13 +121,26 @@ public class Controller {
         chouseIdentifir.setItems(FXCollections.observableArrayList("id", "XPath", "className", "tag", "name"));
 
 
-        goToButton.setOnAction(event -> {
+        createWebDriverButton.setOnAction(event -> {
             appStatus.setText("WAIT");
             clickCountInc();
             try {
-                webActions = new WebActions();
+                webActions = new WebActions("web");
                 driver = webActions.getDriver();
                 driver.get(urlField.getText());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            appStatus.setText("READY");
+
+        });
+
+        createAppiumDriverButton.setOnAction(event -> {
+            appStatus.setText("WAIT");
+            clickCountInc();
+            try {
+                webActions = new WebActions("ANDROID");
+                driver = webActions.getDriver();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -209,7 +225,7 @@ public class Controller {
             try {
 
 
-                getName();
+              //  getName();
                 getValue();
                 getClassName();
                 getText();

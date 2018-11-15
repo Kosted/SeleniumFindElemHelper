@@ -18,13 +18,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies{
-    // this dependency is only required when using UserJvmOptionsService
-    // when using Oracle JDK
-    // compile files("${System.properties['java.home']}/../lib/packager.jar")
-    // when using OpenJFX (Ubuntu), please adjust accordingly
-    // compile files("/usr/share/java/openjfx/lib/packager.jar")
-}
 
 apply plugin: 'javafx-gradle-plugin'
 
@@ -131,6 +124,7 @@ jfx {
 dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
     //testCompile 'junit:junit:4.12'
+    compile 'io.appium:java-client:6.0.0'
     compile 'junit:junit:4.12'
 }
 //

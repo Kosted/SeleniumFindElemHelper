@@ -11,8 +11,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <TextField fx:id="urlField" layoutX="25.0" layoutY="32.0" promptText="url" text="http://dev.agroclub-coordinator.spider.ru/auth/sign-inhttp://dev.agroclub-coordinator.spider.ru/auth/sign-in" />
-      <Button fx:id="goToButton" layoutX="219.0" layoutY="32.0" mnemonicParsing="false" text="GoTo" />
-      <Label fx:id="appStatus" layoutX="408.0" layoutY="30.0" text="READY">
+      <Button fx:id="createWebDriverButton" layoutX="219.0" layoutY="32.0" mnemonicParsing="false" text="WebDriver" />
+      <Label fx:id="appStatus" layoutX="436.0" layoutY="30.0" text="READY">
          <font>
             <Font size="26.0" />
          </font>
@@ -63,7 +63,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <Button fx:id="closeBrowser" layoutX="301.0" layoutY="32.0" mnemonicParsing="false" text="Close" />
+      <Button fx:id="closeBrowser" layoutX="348.0" layoutY="32.0" mnemonicParsing="false" text="Close" />
       <Label layoutX="555.0" layoutY="38.0" text="click:">
          <font>
             <Font size="10.0" />
@@ -74,5 +74,6 @@
             <Font size="10.0" />
          </font>
       </Label>
+      <Button fx:id="createAppiumDriverButton" layoutX="219.0" layoutY="70.0" mnemonicParsing="false" text="Appium" />
    </children>
 </AnchorPane>
